@@ -35,11 +35,7 @@ do
         ElseIf objFolder.Name ="node_modules" Then
             createobject("wscript.shell").popup objFolder.Name+" nao pode fazer pull", 2, "PULL DIARIO"
         Else
-            WshShell.Run "cmd.exe",0,False
-                WScript.Sleep(1000)
-            WshShell.SendKeys("cd ")
-            WshShell.SendKeys(paths+"\"+objFolder.Name)
-            Wshshell.sendkeys "{ENTER}"
+            WshShell.Run("cmd /k CD "&paths+"\"&objFolder.Name)
                 WScript.Sleep(1000)
             WshShell.SendKeys("git pull")
                 WScript.Sleep(1000)
